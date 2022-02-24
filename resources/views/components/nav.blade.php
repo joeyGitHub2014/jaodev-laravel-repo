@@ -30,9 +30,13 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about">about</a>
+     
                     </li>
                     <li class="nav-item">
                         <a class="nav-link site-header__cta" href="/codeEx">Code Ex.</a>
+                        @if (Auth::check())
+                        <div style="position:relitive; width:5px; height:5px;background-color:limegreen;margin-top:1em;margin-left:5em"></div>
+                    @endif
                     </li>
 
                 </ul>

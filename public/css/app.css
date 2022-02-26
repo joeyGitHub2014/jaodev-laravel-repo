@@ -31897,13 +31897,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  /*background-color: #181818;
-    */
+  /*background-color: #181818;*/
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   font-family: "sentinel", Georgia, Times, serif;
   line-height: 1.6;
-  color: #f9f9f9;
+  color: #181818;
   font-size: 100%
 }
 
@@ -31917,7 +31916,7 @@ form{
 
 main {
   flex-grow: 1;
-  background-color: #140303;
+  background-color: #f9f9f9;
 }
 
 a {

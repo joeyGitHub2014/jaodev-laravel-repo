@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 /* home route */
 Route::get('/', function () {
-    return view('projects',['projects'=> Project::all()]);
+    
+        return view('projects',['projects'=> Project::all()]);
 });
 
 

@@ -7,5 +7,6 @@
     <div class="ml-10 mt-2">
         {{$name}}
     </div>
-        {{$slot}}
- </banner>
+    {{$slot}}
+
+</banner>

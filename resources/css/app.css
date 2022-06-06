@@ -1,13 +1,11 @@
+
+   
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
 
 /* general elements */
-html {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-}
 
 body {
     margin: 0;
@@ -792,3 +790,4 @@ h4, .font-h4, .title__header {
     align-items: right;
     background-color: rgb(255, 30, 0);
 }
+ 

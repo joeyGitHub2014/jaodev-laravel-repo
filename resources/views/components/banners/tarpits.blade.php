@@ -45,7 +45,7 @@
 
     <div class="animation_container m-4  shadow-lg" onclick="playPauseAnimation()">
 
-        <div style="opacity:1;"><img src="/htmlBanners/LaBreaTarPits/300x250/tarPits.jpg"></img> </div>
+        <div style="opacity:1;"><img src="/htmlBanners/LaBreaTarPits/300x250/tarPits.png"></img> </div>
 
         <div><img src="/htmlBanners/LaBreaTarPits/300x250/Sloth.jpg"></img></div>
 

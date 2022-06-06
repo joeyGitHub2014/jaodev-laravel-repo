@@ -12,6 +12,7 @@ class ProjectController extends Controller
 {
     public function show($id = null)
     {
+         
         $projectToEdit = null;
         $projects = DB::table('projects')
             ->select('id', 'title', 'image')

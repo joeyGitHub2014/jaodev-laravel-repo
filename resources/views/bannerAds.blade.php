@@ -2,6 +2,7 @@
      <main class="wrapper" data-barba="container" data-barba-namespace="banners">
          <x-header title="banners" />
          <x-banner name="Smart Car" content="smartcar" width="" height="">
+
              <x-banners.smartcar style="background-color:rgba(255, 255, 255, 1.00);" />
          </x-banner>
          <x-banner name="Metro Rapid">

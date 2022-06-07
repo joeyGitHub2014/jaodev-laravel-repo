@@ -1,19 +1,20 @@
 <smartcar>
     <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet" type="text/css">
-    <figure>
+    <figure>    
+    <div class="ml-4 flex justify-center	 text-xs"  >
+        <button onclick="runAnimation()" id="runBtn"  >click to start</button>
+    </div>
     <div class="m-4   overflow-hidden  border border-black relative shadow-lg " {{ $attributes->merge(['style' => '']) }} id="smartCar">
         <div id="car"></div>
         <div class="svg-mask-wrapper">
             <svg viewbox="0 0 720 90">
                 <defs>
-                    <rect id="rectYellow" width="90" height="24" rx="12" ry="12" style="fill: #FFCC00" />
+                    <rect id="rectYellow" width="90" height="24" rx="12" ry="12" style="fill: #FFCC00" /> 
                     <clipPath id="rectRedClipPathId">
                         <rect id="rectRed" x="-90" y="0" width="90" height="24" rx="12" ry="12" style="fill: #990000" />
-                        <!--   <use xlink:href="#rectRed" overflow="hidden"/> -->
                     </clipPath>
                     <clipPath id="clipPathId">
                         <rect x="493" y="70" width="128" height="20" style="fill: #000" />
-                        <!-- <use xlink:href="#rectWhite" overflow="hidden"/>-->
                     </clipPath>
                     <mask id="svg-mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
                         <image id="svg-mask-wireframe-img" x="622" y="9" width="128" height="76" xlink:href="/htmlBanners/SmartCar/assets/mask.png" />
@@ -71,7 +72,6 @@
                 <image id="svg-wheelFront-image" mask="url(#svg-mask)" width="29" height="29" y="55" x="587" xlink:href="/htmlBanners/SmartCar/assets/wheelFront.png" />
                 <image id="svg-wireframe-image" mask="url(#svg-mask)" width="128" height="76" y="9" x="493" xlink:href="/htmlBanners/SmartCar/assets/wireframe.png" />
                 <image id="svg-tridion-image" mask="url(#svg-mask-tridion)" width="74" height="59" y="9" x="510" xlink:href="/htmlBanners/SmartCar/assets/tridion.png" />
-                <!--<use   id="svg-rectYellow" mask="url(#svg-mask-rectWhite)" width="90" height="24" y="41.3" x="500" xlink:href="#rectYellow" />-->
 
                 <g transform="translate(531 31)  rotate(-98)">
                     <ellipse id="arbag2" rx="0" ry="0" fill="#FF6600" opacity=".7" />
@@ -127,11 +127,14 @@
         <div id="smart_bg" onclick="removeBgPlay()"></div>
 
     </div>
+
     </figure>
+
     <script>
 
         const tl1 = gsap.timeline();
         const tl2 = gsap.timeline();
+        const running = false;
 
         function removeBgPlay () {
             el=document.querySelector("#smart_bg")
@@ -140,6 +143,9 @@
         }
 
         function runAnimation() {
+            const runBtn = document.getElementById('runBtn');
+            runBtn.disabled  = true;
+            this.running = true;
             console.log("running smart car animation")
             CSSPlugin.defaultSmoothOrigin = false;
             // Move car
@@ -240,9 +246,10 @@
                 .to('#findBtn', { x: -70, ease: Elastic.easeout, duration: .1 })
                 .to('#findTxt', { opacity: 1, duration: .3 })
 
-                // add disclaimer button 
+                // add disclaimer replay buttons 
                 .to('#theSkinny', { opacity: 1, y: -30, duration: .3 }, '-=.3')
                 .to('#replayBtn', { opacity: 1, x: 25, duration: .3 }, '-=.3')
+                .call(doneSmartCar, [], "-=1.6")
 
 
             function bounceTire() {
@@ -255,7 +262,10 @@
             }
 
         }
- 
+        function doneSmartCar() {
+            this.running = false;
+        }
+
 
         function showText() {
             gsap.to(['#text12'], { x: 788, ease: Linear.easeout, duration: .4 });
@@ -265,11 +275,27 @@
             gsap.to(['#text12'], { x: -790, ease: Linear.easeout, duration: .4 });
         }
         function replay() {
-            tl1.restart();
-            tl2.restart();
+
+            if (!running) {
+                tl1.restart();
+                tl2.restart();
             //window.location.reload(true);
+            }
         }
-            //window.onload = runAnimation;
+
+        window.onbeforeunload = function(){
+             console.log( 'Are you sure you want to leave?')
+             if (tl1 != undefined )  {
+                console.log('killing tl1')
+                tl1.kill();
+                tl1 = null;
+            };
+            if (tl2 != undefined )  {
+                console.log('killing tl1')
+                tl2.kill()
+                tl2 = null;
+            };
+        }
     </script>
 
 </smartcar>

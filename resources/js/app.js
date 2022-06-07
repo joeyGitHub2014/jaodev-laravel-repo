@@ -8,6 +8,7 @@ const animationEnter = (container) => {
 }
 const animationLeave = (container) => {
     console.log('leaving')
+
     return gsap.to(container, {autoAlpha:0, duration:.9, clearProps: 'all', ease:'power4.out'})
     
 }   

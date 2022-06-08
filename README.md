@@ -4,8 +4,8 @@
 
 ## Joseph Orlando website 
 <p>
-Greeting this is my Laravel based website. For the CSS styling it uses <a href="https://tailwindcss.com"> tailwind. </a> 
-The Database is MySQL.
+Greetings! This is my Laravel based website. For the CSS styling I use <a href="https://tailwindcss.com" target="blank"> tailwind. </a> 
+For the database I'm using MySQL.
 </p>
 
 

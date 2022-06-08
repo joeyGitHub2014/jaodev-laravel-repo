@@ -9,10 +9,10 @@
             <div id="rapidText">Rapid</div>
         </div>
     
-    <script>
+    <script  type="text/javascript">
         let metroDone = false;
 
-        function runMetro() {  
+        let runMetro =  () => {  
             console.log(metroDone);
 
             if (!metroDone) {

@@ -2,7 +2,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet" type="text/css">
     <figure>    
     <div class="ml-4 flex justify-center	 text-xs"  >
-        <button onclick="runAnimation()" id="runBtn"  >click to start</button>
+        <button id="runBtn"  >click to start</button>
     </div>
     <div class="m-4   overflow-hidden  border border-black relative shadow-lg " {{ $attributes->merge(['style' => '']) }} id="smartCar">
         <div id="car"></div>
@@ -130,8 +130,10 @@
 
     </figure>
 
-    <script>
+    <script  type="text/javascript">
+        document.getElementById("runBtn").addEventListener("click", function() {    
 
+ 
         const tl1 = gsap.timeline();
         const tl2 = gsap.timeline();
         const running = false;
@@ -142,7 +144,7 @@
             runAnimation();
         }
 
-        function runAnimation() {
+        
             const runBtn = document.getElementById('runBtn');
             runBtn.disabled  = true;
             this.running = true;
@@ -261,41 +263,26 @@
                 tl2.to('#car', { opacity: 0, ease: Power2.easeout, delay: 3, duration: .2 });
             }
 
-        }
         function doneSmartCar() {
             this.running = false;
         }
 
 
         function showText() {
-            gsap.to(['#text12'], { x: 788, ease: Linear.easeout, duration: .4 });
+            gsap.to(['#text12'], { x: 788, ease: Linear.easeout, duration: .4 })
         }
 
         function hideText() {
-            gsap.to(['#text12'], { x: -790, ease: Linear.easeout, duration: .4 });
-        }
-        function replay() {
-
-            if (!running) {
-                tl1.restart();
-                tl2.restart();
-            //window.location.reload(true);
-            }
+            gsap.to(['#text12'], { x: -790, ease: Linear.easeout, duration: .4 })
         }
 
-        window.onbeforeunload = function(){
-             console.log( 'Are you sure you want to leave?')
-             if (tl1 != undefined )  {
-                console.log('killing tl1')
-                tl1.kill();
-                tl1 = null;
-            };
-            if (tl2 != undefined )  {
-                console.log('killing tl1')
-                tl2.kill()
-                tl2 = null;
-            };
-        }
+    })
+    
+    document.getElementById("replayBtn").addEventListener("click", function() {    
+        tl1.restart();
+        tl2.restart();
+    })
+
     </script>
 
 </smartcar>

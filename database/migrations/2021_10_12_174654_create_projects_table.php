@@ -22,6 +22,8 @@ class CreateProjectsTable extends Migration
             $table->text('excerpt');
             $table->string('skills');
             $table->string('type');
+            $table->string('styles');
+
         });
     }
 

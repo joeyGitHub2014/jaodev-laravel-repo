@@ -36,6 +36,10 @@
                 <input class="form-control" name="skills" type="text">
             </div>
             <div class="form-group row">
+                <label for="styles">Styles: </label>
+                <input class="form-control" name="styles" type="text">
+            </div>
+            <div class="form-group row">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>

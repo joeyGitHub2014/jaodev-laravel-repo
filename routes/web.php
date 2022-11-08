@@ -90,3 +90,6 @@ Route::get('/tech', function () {
 Route::get('/codeEx', function () {
     return view('codeEx');
 });
+
+// Project details routes */
+Route::get('/project/{id}', [ProjectController::class, 'details']);

@@ -1,14 +1,13 @@
 <smartcar>
     <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet" type="text/css">
-    <figure>    
     <div class="ml-4 flex justify-center	 text-xs"  >
         <button id="runBtn"  >click to start</button>
     </div>
-    <div class="m-4   overflow-hidden  border border-black relative shadow-lg " {{ $attributes->merge(['style' => '']) }} id="smartCar">
+    <div class="smartCar m-4   overflow-hidden  border border-black relative shadow-lg " {{ $attributes->merge(['style' => '']) }} >
         <div id="car"></div>
         <div class="svg-mask-wrapper">
-            <svg viewbox="0 0 720 90">
-                <defs>
+            <svg viewbox="0 0 720 90">  
+                <defs>   
                     <rect id="rectYellow" width="90" height="24" rx="12" ry="12" style="fill: #FFCC00" /> 
                     <clipPath id="rectRedClipPathId">
                         <rect id="rectRed" x="-90" y="0" width="90" height="24" rx="12" ry="12" style="fill: #990000" />
@@ -100,56 +99,57 @@
         <div id="carAngle"></div>
         <div id="smartBtn"></div>
 
-        <div id="replayBtn" onmousedown="replay()"></div>
+        <div id="replayBtn"></div>
 
         <div class="textStyle" id="text1">the 2019 smart car</div>
         <div class="textStyle" id="text2">with <b>8</b> full-size <b>airbags</b></div>
         <div class="textStyle" id="text3">
-            <p class="leading-9">Electronic <b>Stability</b><br>Program (ESP) </p>
+            <p>Electronic <b>Stability</b> 
+                Program (ESP) </p>
         </div>
         <div class="textStyle" id="text4"><b>hill start</b> assist</div>
         <div class="textStyle" id="text5">
-            <p class="leading-9"><b>crash management</b><br>system</p>
+            <p class="leading-9"><b>crash management</b> system</p>
         </div>
         <div class="textStyle" id="text6">
-            <p class="leading-9">and a racecar-inspired<br><b>tridion safety cell</b></p>
+            <p class="leading-9">and a racecar-inspired<b> tridion safety cell</b></p>
         </div>
         <div class="textStyle" id="text7">small on size.</div>
         <div class="textStyle" id="text8">big on safty.</div>
         <div class="textStyle" id="text9" style="padding-left:70px"><b>unworry.</b></div>
         <div class="textStyle" id="text10" style="padding-left:135px"><b>uncar.</b></div>
         <div class="textStyle" id="text11" style="font-size:.8rem;padding-left:17px">
-            <p class="leading-10">lease for $99/month for 3 months*</p>
+            <p>lease for $99/month for 3 months*</p>
         </div>
         <div id="findBtn"></div>
         <div class="textStyle" id="theSkinny" onmouseover="showText()" onmouseout="hideText()">the skinny</div>
-        <div class="textStyle" id="text12"> <textarea rows="11" cols="116">Mercedes-Benz USA, LLC ("MBUSA") appreciates your interest in its products and  your visit to its Internet site, MBUSA.com (the "Site"). Your privacy is important to us and we want you to feel comfortable visiting our Site. Protecting your privacy in the processing of your personal data is an important concern to which we pay special attention. Therefore, this online privacy statement tells you about the information MBUSA collects through the services available on our Site, how we use that information, and how you can opt out of certain uses of information we may collect. By using our services and accessing our Site, you are consenting to the information collection and use practices described in this online privacy statement, as modified from time to time by us. If we decide to change this online privacy statement, we will post a new online privacy statement on our Site an websites for additional details.</textarea></div>
-        <div id="smart_bg" onclick="removeBgPlay()"></div>
+        <div class="textStyle" id="text12"> <textarea rows="6" cols="141">Mercedes-Benz USA, LLC ("MBUSA") appreciates your interest in its products and  your visit to its Internet site, MBUSA.com (the "Site"). Your privacy is important to us and we want you to feel comfortable visiting our Site. Protecting your privacy in the processing of your personal data is an important concern to which we pay special attention. Therefore, this online privacy statement tells you about the information MBUSA collects through the services available on our Site, how we use that information, and how you can opt out of certain uses of information we may collect. By using our services and accessing our Site, you are consenting to the information collection and use practices described in this online privacy statement, as modified from time to time by us. If we decide to change this online privacy statement, we will post a new online privacy statement on our Site an websites for additional details.</textarea></div>
+        <!-- <div id="smart_bg" onclick="removeBgPlay()"></div>           -->
 
     </div>
 
-    </figure>
 
     <script  type="text/javascript">
+
         document.getElementById("runBtn").addEventListener("click", function() {    
-
- 
-        const tl1 = gsap.timeline();
-        const tl2 = gsap.timeline();
-        const running = false;
-
-        function removeBgPlay () {
-            el=document.querySelector("#smart_bg")
-            el.opacity = 0;            
-            runAnimation();
-        }
-
-        
             const runBtn = document.getElementById('runBtn');
             runBtn.disabled  = true;
+
+            const tl1 = gsap.timeline();
+            const tl2 = gsap.timeline();
+            const running = false;
+
+            function removeBgPlay () {
+                el=document.querySelector("#smart_bg")
+                el.opacity = 0;            
+                runAnimation();
+            }
             this.running = true;
+
             console.log("running smart car animation")
+
             CSSPlugin.defaultSmoothOrigin = false;
+            
             // Move car
             tl1.to('#car', { left: 491, ease: Power2.easeout, duration: .7, delay: 1 })
                 .to('#text1', { opacity: 1, y: 20, duration: .5 })
@@ -179,7 +179,7 @@
                 .to('#text2', { opacity: 0, duration: .5 }, '-=.3')
 
                 // Start road bumps
-                .to('#text3', { opacity: 1, duration: .5 })
+                .to('#text3', { opacity: 1, y: 20, duration: .5 })
                 .to('#svg-wireframe-image', { scale: .90, y: -7, ease: Power2.easeout, duration: .5 }, '-=.5')
                 .to('#svg-wheelBack-image', { scale: .90, x: 4.5, y: -9, ease: Power2.easeout, transformOrigin: '50% 50%', duration: .5 }, '-=.5')
                 .to('#svg-wheelFront-image', { scale: .90, x: -5, y: -9, ease: Power2.easeout, transformOrigin: '50% 50%', duration: .5 }, '-=.5')
@@ -211,10 +211,10 @@
                 .to('#text4', { opacity: 0, duration: .5 }, '-=1')
 
                 //  display safty features 
-                .to('#text5', { opacity: 1, duration: .5 })
+                .to('#text5', { opacity: 1,y:20,  duration: .5 })
                 .to('#safty', { opacity: 1, repeat: 5, yoyo: true, ease: Linear.easeNone, duration: .2 })
                 .to('#text5', { opacity: 0, duration: .5 })
-                .to('#text6', { opacity: 1, duration: .5 })
+                .to('#text6', { opacity: 1, y:20,  duration: .5 })
                 .to('#svg-mask-tridion image', { attr: { x: 506 }, duration: .4 })
                 .to('#svg-tridion-image', { opacity: 0, repeat: 5, yoyo: true, ease: Linear.easeNone, duration: .2 })
                 .to('#svg-tridion-image', { opacity: 0, ease: Linear.easeNone, delay: 1, duration: .1 })
@@ -238,7 +238,7 @@
                 .to('#text9', { opacity: 1, y: 20, duration: .5 })
                 .to('#text9', { x: -60, duration: .5 })
                 .to('#text10', { opacity: 1, y: 20, duration: .5 })
-                .to('#text11', { opacity: 1, y: 45, duration: .5 })
+                .to('#text11', { opacity: 1, y: 55, duration: .5 })
 
                 // animate find button
                 .to('#findBtn', { scale: 1.2, transformOrigin: '50% 50%', ease: Elastic.easeOut, duration: .3 })
@@ -263,21 +263,18 @@
                 tl2.to('#car', { opacity: 0, ease: Power2.easeout, delay: 3, duration: .2 });
             }
 
-        function doneSmartCar() {
-            this.running = false;
-        }
-
-
-        function showText() {
-            gsap.to(['#text12'], { x: 788, ease: Linear.easeout, duration: .4 })
-        }
-
-        function hideText() {
-            gsap.to(['#text12'], { x: -790, ease: Linear.easeout, duration: .4 })
-        }
+            function doneSmartCar() {
+                this.running = false;
+            }
 
     })
-    
+    function showText() {
+        gsap.to(['#text12'], { x: 788, ease: Linear.easeout, duration: .4 })
+    }
+
+    function hideText() {
+        gsap.to(['#text12'], { x: -790, ease: Linear.easeout, duration: .4 })
+    }
     document.getElementById("replayBtn").addEventListener("click", function() {    
         tl1.restart();
         tl2.restart();

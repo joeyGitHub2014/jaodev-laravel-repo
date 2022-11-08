@@ -87,7 +87,20 @@ class ProjectController extends Controller
         $project->description   = $request->input('description');
         $project->type          = $request->input('type');
         $project->skills        = $request->input('skills');
+        $project->styles        = $request->input('styles');
+
         $project->save();
         return back()->withInput()->withFlashSuccess(__('Project Created'));
+    }
+
+    public function details(Request $request){
+        if ($request->id != null) {
+            $projectDetails = DB::table('projects')
+                ->where("id", '=', $request->id )
+                ->first();
+        }
+
+        return view('projectDetails', ['projectDetails' => $projectDetails]);
+
     }
 }
